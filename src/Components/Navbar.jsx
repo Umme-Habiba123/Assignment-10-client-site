@@ -8,7 +8,7 @@ import { NavLink } from 'react-router';
 const Navbar = () => {
 
     const { user, logOutUser } = use(AuthContext)
-    console.log(user)
+ 
 
     const handleLogOut = () => {
         logOutUser()
@@ -57,7 +57,7 @@ const Navbar = () => {
                     </div>
 
                     <Link to={'/'}>
-                        <p className="btn btn-ghost                     lg:text-3xl text-xs md:text-2xl"><SiFreelancermap />Flexora</p>
+                        <p className="btn btn-ghost                      text-xs md:text-2xl">💻Flexora</p>
                     </Link>
                 </div>
 
