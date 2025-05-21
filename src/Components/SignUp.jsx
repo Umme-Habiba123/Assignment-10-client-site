@@ -147,13 +147,13 @@ const SignUp = () => {
                             <label className="label">Password</label>
                             <input
                                 name='password'
-                                type="password" className="input bg-gray-100 border-none" placeholder="Password" required />
+                                type="password" className="input bg-gray-100 border-none" placeholder= "🔐 Password" required />
 
 
                             <label className="label">Re-Type Password</label>
                             <input
                                 name='ReTypePassword'
-                                type="password" className="input bg-gray-100 border-none" placeholder="Re-Type Password" required />
+                                type="password" className="input bg-gray-100 border-none" placeholder="🔐 Re-Type Password" required />
 
                             <div>
                                 <Link>

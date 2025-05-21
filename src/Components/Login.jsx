@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 
 const Login = () => {
 
-    const { logInUser, googleLogIn } = use(AuthContext)
+    const { logInUser, googleLogIn, } = use(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     console.log(location)
@@ -22,44 +22,52 @@ const Login = () => {
         const email = e.target.email.value
         const password = e.target.password.value
 
-        if (password.length < 6) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Invalid Password',
-                text: '🔒 Password must be at least 6 characters long.',
-            });
-            return;
-        }
-
-        if (!/[a-z]/.test(password)) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Invalid Password',
-                text: '🔡 Password must include at least one lowercase letter.',
-            });
-            return;
-        }
-
-        if (!/[A-Z]/.test(password)) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Invalid Password',
-                text: '🔠 Password must include at least one uppercase letter.',
-            });
-            return;
-        }
-
-
         logInUser(email, password)
             .then(result => {
                 console.log(result.user)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Login Successful!',
+                    timer: 1500,
+                    showConfirmButton: false,
+                });
                 navigate(location?.state || '/')
             }).catch(error => {
-                console.log(error)
+                console.log(error.code)
 
+                if (error.code === 'auth/user-not-found') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Invalid Email',
+                        text: 'This email is not registered. Please check and try again.',
+                    })
+                 } else if (error.code === 'auth/wrong-password') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Incorrect Password',
+                        text: 'The password you entered is incorrect. Please try again.',
+                    });
+                }
+                else if(error.code === 'auth/invalid-email'){
+                      Swal.fire({
+                    icon: 'error',
+                    title: 'Invalid Email Format',
+                    text: 'Please enter a valid email address.',
+                });
+
+                }else{
+                     Swal.fire({
+                    icon: 'error',
+                    title: 'Login Failed',
+                    text: error.message,
+                });
+                }
             })
 
-    }
+            }
+
+
+
 
     const handleGoogleLogIn = () => {
         googleLogIn().then(result => {
@@ -97,10 +105,10 @@ const Login = () => {
                             <label className="label">Password</label>
                             <input
                                 name='password'
-                                type="password" className="input" placeholder="Password" required />
+                                type="password" className="input" placeholder="🔐 Password" required />
 
                             <div>
-                                <Link>
+                                <Link to={'/forgotPass'}>
                                     <p className="link link-hover">Forgot password?</p>
                                 </Link>
 
