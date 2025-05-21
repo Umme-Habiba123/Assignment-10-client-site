@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+
 
 import {
   createBrowserRouter,
@@ -12,11 +12,17 @@ import Home from './Components/Home.jsx';
 import AddTasks from './Components/AddTasks.jsx';
 import BrouseTasks from './Components/BrouseTasks.jsx';
 import MyPostedTasks from './Components/MyPostedTasks.jsx';
+import Login from './Components/Login.jsx';
+import SignUp from './Components/SignUp.jsx';
+import ErrorPage from './Components/ErrorPage.jsx';
+import AuthProvider from './Provider/AuthProvider.jsx';
+import PrivateRoute from './Routes/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
       {
         index:true,
@@ -24,18 +30,23 @@ const router = createBrowserRouter([
       },
       {
         path:'addTasks',
-        Component:AddTasks
+         element: <PrivateRoute><AddTasks></AddTasks></PrivateRoute>
       },
       {
         path:'brouseTasks',
-        Component:BrouseTasks
+        element:<PrivateRoute><BrouseTasks></BrouseTasks></PrivateRoute>
       },
       {
         path:'myPostedTasks',
-        Component:MyPostedTasks
+        element: <PrivateRoute><MyPostedTasks></MyPostedTasks></PrivateRoute>
       },
       {
-        
+       path: 'logIn',
+       Component:Login 
+      },
+      {
+        path:'signUp',
+        Component: SignUp
       }
     ]
   },
@@ -43,6 +54,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <RouterProvider router={router} />
+     <AuthProvider>
+      <RouterProvider router={router} />
+     </AuthProvider>
   </StrictMode>,
 )
