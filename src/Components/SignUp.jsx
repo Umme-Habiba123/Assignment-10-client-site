@@ -1,15 +1,16 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { CiFacebook } from "react-icons/ci";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { RiAppleLine } from "react-icons/ri";
 import { AuthContext } from '../Provider/AuthContext';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
 
-    const { createUser, googleLogIn, setUser, user,updateUserProfile } = use(AuthContext)
-
+    const { createUser, googleLogIn, setUser, user, updateUserProfile, setErrorMessage, errorMessage, } = use(AuthContext)
+    const navigate = useNavigate()
 
     const handleSignUp = e => {
         e.preventDefault()
@@ -21,30 +22,94 @@ const SignUp = () => {
         const ReTypePassword = e.target.ReTypePassword.value
         console.log(name, email, photoURL, password, ReTypePassword)
 
+        if (password.length < 6) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Invalid Password',
+                text: '🔒 Password must be at least 6 characters long.',
+            });
+            return;
+        }
+
+        if (!/[a-z]/.test(password)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Invalid Password',
+                text: '🔡 Password must include at least one lowercase letter.',
+            });
+            return;
+        }
+
+        if (!/[A-Z]/.test(password)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Invalid Password',
+                text: '🔠 Password must include at least one uppercase letter.',
+            });
+            return;
+        }
+
+
+        setErrorMessage('')
+        if (password !== ReTypePassword) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Passwords do not match!',
+            });
+            return
+        }
+
+
+        setErrorMessage('')
+
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
-                updateUserProfile({displayName: name,
-                    photoURL: photoURL}).then(()=>{
-                      setUser({...user,displayName: name,
-                    photoURL: photoURL })
-                    }).catch(error=>{
-                        console.log(error)
-                        setUser(user)
+                updateUserProfile({
+                    displayName: name,
+                    photoURL: photoURL
+                }).then(() => {
+                    setUser({
+                        ...user, displayName: name,
+                        photoURL: photoURL
                     })
-                
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Sign Up successful!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                        navigate('/logIn')
+                    })
+
+                }).catch(error => {
+                    console.log(error)
+                    setUser(user)
+                })
+
             }).catch(error => {
-                console.log(error)
+                setErrorMessage(error.message)
             }
             )
 
+
+
     }
 
-    const handleGoogleSignUp=()=>{
-      googleLogIn().then(result=>{
+    const handleGoogleSignUp = () => {
+        googleLogIn().then(result => {
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Google login successful!",
+                showConfirmButton: false,
+                timer: 1500
+            });
             console.log(result.user)
 
-        }).catch(error=>{
+        }).catch(error => {
             console.log(error)
         })
     }
@@ -77,18 +142,18 @@ const SignUp = () => {
                             <label className="label">photoURL</label>
                             <input
                                 name='photoURL'
-                                type="photo" className="input bg-gray-100 border-none" placeholder="photoURL"  required/>
+                                type="url" className="input bg-gray-100 border-none" placeholder="photoURL" required />
 
                             <label className="label">Password</label>
                             <input
                                 name='password'
-                                type="password" className="input bg-gray-100 border-none" placeholder="Password"  required/>
+                                type="password" className="input bg-gray-100 border-none" placeholder="Password" required />
 
 
                             <label className="label">Re-Type Password</label>
                             <input
                                 name='ReTypePassword'
-                                type="password" className="input bg-gray-100 border-none" placeholder="Re-Type Password"  required/>
+                                type="password" className="input bg-gray-100 border-none" placeholder="Re-Type Password" required />
 
                             <div>
                                 <Link>
@@ -99,6 +164,13 @@ const SignUp = () => {
                             <button className="btn btn-neutral mt-4 border-cyan-500 bg-cyan-600 hover:bg-white hover:text-black text-lg">SIGN IN</button>
 
                         </form>
+
+                        {
+                            errorMessage && <p className='text-red-600'>{errorMessage}</p>
+                        }
+
+
+
                         <Link to={'/logIn'}>
                             <p>ALready a User ? <span className='text-fuchsia-600 underline hover:text-blue-700'> LOG IN</span> </p>
 
@@ -108,9 +180,9 @@ const SignUp = () => {
 
                         <Link className='text-4xl flex  justify-center gap-3'>
                             <CiFacebook />
-                          <span onClick={handleGoogleSignUp} className=''>
-                            <FcGoogle />
-                          </span>
+                            <span onClick={handleGoogleSignUp} className=''>
+                                <FcGoogle />
+                            </span>
                             <FaGithub />
                             <RiAppleLine />
                         </Link>

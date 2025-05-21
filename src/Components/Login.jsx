@@ -5,36 +5,67 @@ import { SlSocialGoogle } from "react-icons/sl";
 import { FaGithub } from "react-icons/fa";
 import { RiAppleLine } from "react-icons/ri";
 import { AuthContext } from '../Provider/AuthContext';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
-    const {logInUser, googleLogIn}=use(AuthContext)
-    const navigate=useNavigate()
+    const { logInUser, googleLogIn } = use(AuthContext)
+    const navigate = useNavigate()
     const location = useLocation()
     console.log(location)
-    
-    const handleLogIn=e=>{
+
+
+
+    const handleLogIn = e => {
         e.preventDefault()
-    
-         const email = e.target.email.value
+
+        const email = e.target.email.value
         const password = e.target.password.value
 
-       logInUser(email,password)
-       .then(result=>{
-        console.log(result.user)
-         navigate(location?.state || '/')
-       }).catch(error=>{
-        console.log(error)
-       
-       })
-        
+        if (password.length < 6) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Invalid Password',
+                text: '🔒 Password must be at least 6 characters long.',
+            });
+            return;
+        }
+
+        if (!/[a-z]/.test(password)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Invalid Password',
+                text: '🔡 Password must include at least one lowercase letter.',
+            });
+            return;
+        }
+
+        if (!/[A-Z]/.test(password)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Invalid Password',
+                text: '🔠 Password must include at least one uppercase letter.',
+            });
+            return;
+        }
+
+
+        logInUser(email, password)
+            .then(result => {
+                console.log(result.user)
+                navigate(location?.state || '/')
+            }).catch(error => {
+                console.log(error)
+
+            })
+
     }
 
-    const handleGoogleLogIn=()=>{
-        googleLogIn().then(result=>{
+    const handleGoogleLogIn = () => {
+        googleLogIn().then(result => {
             console.log(result.user)
 
-        }).catch(error=>{
+        }).catch(error => {
             console.log(error)
         })
     }
@@ -54,19 +85,19 @@ const Login = () => {
                     <div className="card-body">
                         <form onSubmit={handleLogIn} className="fieldset">
 
-                           
+
                             <label className="label">Email</label>
                             <input
 
                                 name='email'
-                                type="email" className="input" placeholder="📧 Email"  required/>
+                                type="email" className="input" placeholder="📧 Email" required />
 
-                          
+
 
                             <label className="label">Password</label>
                             <input
                                 name='password'
-                                type="password" className="input" placeholder="Password"  required/>
+                                type="password" className="input" placeholder="Password" required />
 
                             <div>
                                 <Link>
@@ -85,15 +116,15 @@ const Login = () => {
 
                     </div>
                     <p className='text-gray-300 text-center text-xl mt-3'>------- OR -------</p>
-                    
-                         <Link className='text-4xl flex  justify-center gap-3 mb-8 mt-4'>
-                     <CiFacebook />
-                    <span onClick={handleGoogleLogIn}>
-                        <SlSocialGoogle />
-                    </span>
-                    <FaGithub />
-                     <RiAppleLine />
-                     </Link>
+
+                    <Link className='text-4xl flex  justify-center gap-3 mb-8 mt-4'>
+                        <CiFacebook />
+                        <span onClick={handleGoogleLogIn}>
+                            <SlSocialGoogle />
+                        </span>
+                        <FaGithub />
+                        <RiAppleLine />
+                    </Link>
 
 
                 </div>

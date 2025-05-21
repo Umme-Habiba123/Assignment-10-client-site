@@ -9,6 +9,8 @@ const AuthProvider = ({ children }) => {
 
   const [user, setUser]=useState(null)
   const [loading, setLoading]= useState(true)
+    const [errorMessage, setErrorMessage]=useState('')
+    const [successMessage, setSuccessMessage]=useState(false)
 
   const createUser = (email, password) => {
     setLoading(true)
@@ -31,7 +33,7 @@ const AuthProvider = ({ children }) => {
   }
 
   const updateUserProfile=(updateData)=>{
-    updateProfile(auth.currentUser, updateData)
+    return updateProfile(auth.currentUser, updateData)
   }
 
   const userInfo = {
@@ -43,6 +45,10 @@ const AuthProvider = ({ children }) => {
      logInUser,
      googleLogIn,
      updateUserProfile,
+     errorMessage,
+     setErrorMessage,
+     setSuccessMessage,
+     successMessage,
   }
 
   // onAuthStateChanged(auth, (currentUser)=>{
