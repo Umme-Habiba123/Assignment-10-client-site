@@ -12,6 +12,8 @@ const AuthProvider = ({ children }) => {
     const [errorMessage, setErrorMessage]=useState('')
     const [successMessage, setSuccessMessage]=useState(false)
 
+    const [showPassword, setShowPassword]=useState(false)
+
   const createUser = (email, password) => {
     setLoading(true)
     return createUserWithEmailAndPassword(auth, email, password)
@@ -49,6 +51,8 @@ const AuthProvider = ({ children }) => {
      setErrorMessage,
      setSuccessMessage,
      successMessage,
+     setShowPassword,
+     showPassword
   }
 
   // onAuthStateChanged(auth, (currentUser)=>{

@@ -17,7 +17,7 @@ import SignUp from './Components/SignUp.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
-import ForgotPass from './Components/ForgotPass.jsx';
+// import ForgotPass from './Components/ForgotPass.jsx';
 
 const router = createBrowserRouter([
   {
@@ -49,10 +49,10 @@ const router = createBrowserRouter([
         path:'signUp',
         Component: SignUp
       },
-      {
-        path:'forgotPass',
-        Component: ForgotPass
-      }
+      // {
+      //   path:'forgotPass',
+      //   Component: ForgotPass
+      // }
     ]
   },
 ]);

@@ -20,7 +20,13 @@ const SignUp = () => {
         const photoURL = e.target.photoURL.value
         const password = e.target.password.value
         const ReTypePassword = e.target.ReTypePassword.value
-        console.log(name, email, photoURL, password, ReTypePassword)
+        const checkBox=e.target.checkBox.checked
+        console.log(name, email, photoURL, password, checkBox,ReTypePassword)
+
+        setErrorMessage('')
+        if(!checkBox){
+            setErrorMessage('Please accept our terms and conditions')
+        }
 
         if (password.length < 6) {
             Swal.fire({
@@ -147,7 +153,7 @@ const SignUp = () => {
                             <label className="label">Password</label>
                             <input
                                 name='password'
-                                type="password" className="input bg-gray-100 border-none" placeholder= "🔐 Password" required />
+                                type="password" className="input bg-gray-100 border-none" placeholder="🔐 Password" required />
 
 
                             <label className="label">Re-Type Password</label>
@@ -156,6 +162,18 @@ const SignUp = () => {
                                 type="password" className="input bg-gray-100 border-none" placeholder="🔐 Re-Type Password" required />
 
                             <div>
+                                <div>
+                                    <fieldset className="fieldset bg-base-100 border-base-300  w-64 py-4">
+                                       
+                                        <label className="label">
+                                            <input 
+                                            name='checkBox'
+                                            type="checkbox"  className="checkbox text-2xl" />
+                                           Accept Terms and Conditions
+                                        </label>
+                                    </fieldset>
+                                </div>
+                                
                                 <Link>
                                     <p className="link link-hover">Forgot password?</p>
                                 </Link>

@@ -6,10 +6,14 @@ import { FaGithub } from "react-icons/fa";
 import { RiAppleLine } from "react-icons/ri";
 import { AuthContext } from '../Provider/AuthContext';
 import Swal from 'sweetalert2';
+import { FaRegEye } from "react-icons/fa";
+import { RiEyeCloseFill } from "react-icons/ri";
+
+
 
 const Login = () => {
 
-    const { logInUser, googleLogIn, } = use(AuthContext)
+    const { logInUser, googleLogIn, setShowPassword, showPassword,setErrorMessage } = use(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     console.log(location)
@@ -21,6 +25,11 @@ const Login = () => {
 
         const email = e.target.email.value
         const password = e.target.password.value
+        const checkBox = e.target.checkBox.checked
+
+        if (!checkBox) {
+            setErrorMessage('Please accept our terms and conditions')
+        }
 
         logInUser(email, password)
             .then(result => {
@@ -41,30 +50,30 @@ const Login = () => {
                         title: 'Invalid Email',
                         text: 'This email is not registered. Please check and try again.',
                     })
-                 } else if (error.code === 'auth/wrong-password') {
+                } else if (error.code === 'auth/wrong-password') {
                     Swal.fire({
                         icon: 'error',
                         title: 'Incorrect Password',
                         text: 'The password you entered is incorrect. Please try again.',
                     });
                 }
-                else if(error.code === 'auth/invalid-email'){
-                      Swal.fire({
-                    icon: 'error',
-                    title: 'Invalid Email Format',
-                    text: 'Please enter a valid email address.',
-                });
+                else if (error.code === 'auth/invalid-email') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Invalid Email Format',
+                        text: 'Please enter a valid email address.',
+                    });
 
-                }else{
-                     Swal.fire({
-                    icon: 'error',
-                    title: 'Login Failed',
-                    text: error.message,
-                });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Login Failed',
+                        text: error.message,
+                    });
                 }
             })
 
-            }
+    }
 
 
 
@@ -93,21 +102,38 @@ const Login = () => {
                     <div className="card-body">
                         <form onSubmit={handleLogIn} className="fieldset">
 
-
+                            {/* name */}
                             <label className="label">Email</label>
                             <input
 
                                 name='email'
                                 type="email" className="input" placeholder="📧 Email" required />
-
-
-
-                            <label className="label">Password</label>
-                            <input
-                                name='password'
-                                type="password" className="input" placeholder="🔐 Password" required />
-
+                            {/* password */}
+                            <div className='relative'>
+                                <label className="label">Password</label>
+                                <input
+                                    name='password'
+                                    type={showPassword ? 'text' : "password"} className="input" placeholder="🔐 Password" required />
+                                <button onClick={() => setShowPassword(!showPassword)} className='cursor-pointer absolute right-8 bottom-3'>
+                                    {
+                                        showPassword ?
+                                            <FaRegEye size={18} /> :
+                                            <RiEyeCloseFill size={18} />
+                                    }
+                                </button>
+                            </div>
                             <div>
+                                <div>
+                                    <fieldset className="fieldset bg-base-100 border-base-300  w-64 py-4">
+
+                                        <label className="label">
+                                            <input
+                                                name='checkBox'
+                                                type="checkbox" className="checkbox text-2xl" />
+                                            Accept Terms and Conditions
+                                        </label>
+                                    </fieldset>
+                                </div>
                                 <Link to={'/forgotPass'}>
                                     <p className="link link-hover">Forgot password?</p>
                                 </Link>
