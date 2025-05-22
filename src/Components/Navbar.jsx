@@ -22,11 +22,12 @@ const Navbar = () => {
     const links = <>
 
         <NavLink to={'/'}><li><p>HOME</p></li> </NavLink>
-        <NavLink to={'/brouseTasks'}><li><p>BROUSE TASKS</p></li> </NavLink>
+        <NavLink to={'/addTasks'}><li><p>ADD TASKS</p></li> </NavLink>
+       
         {user &&
             <>
 
-                <NavLink to={'/addTasks'}><li><p>ADD TASKS</p></li> </NavLink>
+                 <NavLink to={'/brouseTasks'}><li><p>BROUSE TASKS</p></li> </NavLink>
 
                 <NavLink to={'/myPostedTasks'}><li><p>MY POSTED TASKS</p></li> </NavLink>
             </>
@@ -91,19 +92,19 @@ const Navbar = () => {
                                     {user.email}
                                 </span>
 
-                                <p onClick={handleLogOut} className="btn text-xs md:text-xl lg:text-sm   bg-teal-500 border border-teal-600  hover:bg-white">LOG OUT</p>
+                                <p onClick={handleLogOut} className="btn text-xs md:text-xl lg:text-sm   bg-black text-white border  hover:bg-white hover:text-black">LOG OUT</p>
                             </>
 
                             :
                             (
                                 <Link to={'/logIn'}>
-                                    <p className="btn text-xs md:text-xl lg:text-sm   bg-teal-500 border border-teal-600  hover:bg-white">LOG IN</p>
+                                    <p className="btn text-xs md:text-xl lg:text-sm   bg-black text-white border border-black hover:bg-white hover:text-black">LOG IN</p>
                                 </Link>
                             )
                     }
 
                     <Link to={'/signUp'}>
-                        <p className="btn text-xs md:text-xl lg:text-sm   bg-teal-500 border border-teal-600  hover:bg-white">SIGN UP</p>
+                        <p className="btn text-xs md:text-xl lg:text-sm   bg-pink-200 border border-pink-200  hover:bg-white">SIGN UP</p>
                     </Link>
                 </div>
             </div>

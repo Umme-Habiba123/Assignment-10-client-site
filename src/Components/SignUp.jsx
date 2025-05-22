@@ -81,7 +81,7 @@ const SignUp = () => {
                         photoURL: photoURL
                     })
                     Swal.fire({
-                        position: "top-end",
+                      
                         icon: "success",
                         title: "Sign Up successful!",
                         showConfirmButton: false,
@@ -107,7 +107,7 @@ const SignUp = () => {
     const handleGoogleSignUp = () => {
         googleLogIn().then(result => {
             Swal.fire({
-                position: "top-end",
+              
                 icon: "success",
                 title: "Google login successful!",
                 showConfirmButton: false,

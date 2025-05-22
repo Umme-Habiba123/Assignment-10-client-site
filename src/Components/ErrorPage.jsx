@@ -1,9 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router';
+
+import { Link, useLocation, useNavigate } from 'react-router';
 import Navbar from './Navbar';
 import { FaArrowLeftLong } from "react-icons/fa6";
 
 const ErrorPage = () => {
+    const navigate=useNavigate()
+    const location=useLocation()
+
     return (
         <div className=' '>
 
@@ -22,6 +25,8 @@ const ErrorPage = () => {
                     </div>
                     <ul>
                         <Link to={'/'}>
+                            <li onClick={()=>navigate(-1)} className='flex lg:text-2xl gap-2 tagesschrift-regular text-cyan-600 mt-5 lg:mt-5 hover:text-black'> <span className='mt-1 '><FaArrowLeftLong /></span>Go to Previous Page</li>
+
                             <li className='flex lg:text-2xl gap-2 tagesschrift-regular text-cyan-600 mt-5 lg:mt-5 hover:text-black'> <span className='mt-1 '><FaArrowLeftLong /></span>Go to home page</li>
                         </Link>
                     </ul>
