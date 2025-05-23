@@ -154,11 +154,11 @@ const AddTasks = () => {
                             placeholder="Write clearly what needs to be done..."
                             required
                         ></textarea>
-                        {/* text.reset() */}
+      
                     </fieldset>
 
 
-                    <input type="submit" className="btn bg-pink-200 border border-pink-200 hover:bg-white hover:text-teal-800  mt-3 w-full text-xl dancing-script-font mb-50" value='Add Button' />
+                    <input type="submit" className="btn bg-pink-200 border border-pink-200 hover:bg-white hover:text-teal-800  mt-3 w-full text-xl dancing-script-font mb-50" value='Add Task' />
                 </div>
 
             </form>

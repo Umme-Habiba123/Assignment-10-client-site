@@ -11,13 +11,14 @@ import MainLayout from './Layouts/MainLayout.jsx';
 import Home from './Components/Home.jsx';
 import AddTasks from './Components/AddTasks.jsx';
 import BrouseTasks from './Components/BrouseTasks.jsx'
-import MyPostedTasks from './Components/MyPostedTasks.jsx';
+import MyPostedTasks from './Components/MyPostedTasks.jsx'
 import Login from './Components/Login.jsx';
 import SignUp from './Components/SignUp.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
 import TaskDetails from './Components/TaskDetails.jsx';
+import UpdateTasks from './Components/UpdateTasks.jsx';
 
 // import ForgotPass from './Components/ForgotPass.jsx';
 
@@ -61,6 +62,14 @@ const router = createBrowserRouter([
         loader:({params})=>fetch(`http://localhost:5000/tasks/${params._id}`),
         Component:TaskDetails
       },
+      {
+        path:'/updateTask/:id',
+        loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
+        element:<PrivateRoute><UpdateTasks></UpdateTasks></PrivateRoute>
+      },
+      {
+
+      }
     ]
   },
 ]);
