@@ -6,10 +6,12 @@ import { FaGithub } from "react-icons/fa";
 import { RiAppleLine } from "react-icons/ri";
 import { AuthContext } from '../Provider/AuthContext';
 import Swal from 'sweetalert2';
+import { FaRegEye } from "react-icons/fa";
+import { RiEyeCloseFill } from "react-icons/ri";
 
 const SignUp = () => {
 
-    const { createUser, googleLogIn, setUser, user, updateUserProfile, setErrorMessage, errorMessage, } = use(AuthContext)
+    const { createUser, googleLogIn, setUser, user, updateUserProfile, setErrorMessage, errorMessage, setShowPassword, showPassword } = use(AuthContext)
     const navigate = useNavigate()
 
     const handleSignUp = e => {
@@ -20,11 +22,11 @@ const SignUp = () => {
         const photoURL = e.target.photoURL.value
         const password = e.target.password.value
         const ReTypePassword = e.target.ReTypePassword.value
-        const checkBox=e.target.checkBox.checked
-        console.log(name, email, photoURL, password, checkBox,ReTypePassword)
+        const checkBox = e.target.checkBox.checked
+        console.log(name, email, photoURL, password, checkBox, ReTypePassword)
 
         setErrorMessage('')
-        if(!checkBox){
+        if (!checkBox) {
             setErrorMessage('Please accept our terms and conditions')
         }
 
@@ -81,7 +83,7 @@ const SignUp = () => {
                         photoURL: photoURL
                     })
                     Swal.fire({
-                      
+
                         icon: "success",
                         title: "Sign Up successful!",
                         showConfirmButton: false,
@@ -107,7 +109,7 @@ const SignUp = () => {
     const handleGoogleSignUp = () => {
         googleLogIn().then(result => {
             Swal.fire({
-              
+
                 icon: "success",
                 title: "Google login successful!",
                 showConfirmButton: false,
@@ -136,44 +138,66 @@ const SignUp = () => {
                             <label className="label">Name</label>
                             <input
                                 name='name'
-                                type="text" className="input bg-gray-100 border-none" placeholder="Your name"
+                                type="text" className="input bg-gray-100 focus:outline-none focus:ring-2 focus:ring-pink-100 border-none" placeholder="Your name"
                                 required />
 
                             <label className="label">Email</label>
                             <input
 
                                 name='email'
-                                type="email" className="input bg-gray-100 border-none" placeholder="📧 Email" />
+                                type="email" className="input bg-gray-100 focus:outline-none focus:ring-2 focus:ring-pink-100 border-none" placeholder="📧 Email" />
 
                             <label className="label">photoURL</label>
-                            <input
-                                name='photoURL'
-                                type="url" className="input bg-gray-100 border-none" placeholder="photoURL" required />
+                            <div className=''>
+                                <input
+                                    name='photoURL'
+                                    type="url" className="input bg-gray-100 focus:outline-none focus:ring-2 focus:ring-pink-100 border-none" placeholder="photoURL" required />
+                            </div>
 
-                            <label className="label">Password</label>
-                            <input
-                                name='password'
-                                type="password" className="input bg-gray-100 border-none" placeholder="🔐 Password" required />
+                            <div className='relative'>
+                                <label className="label">Password</label>
+                                <input
+                                    name='password'
+                                    type={showPassword ? 'text' : "password"}
+                                    className="input focus:outline-none focus:ring-2 focus:ring-pink-100 bg-gray-100 border-none mt-2" placeholder="🔐 Password" required />
+                                <button onClick={() => setShowPassword(!showPassword)} className='cursor-pointer absolute right-8 bottom-3'>
+                                    {
+                                        showPassword ?
+                                            <FaRegEye size={18} /> :
+                                            <RiEyeCloseFill size={18} />
+                                    }
+                                </button>
 
+                            </div>
 
-                            <label className="label">Re-Type Password</label>
+                          <div className='relative'>
+                              <label className="label">Re-Type Password</label>
                             <input
                                 name='ReTypePassword'
-                                type="password" className="input bg-gray-100 border-none" placeholder="🔐 Re-Type Password" required />
+                                 type={showPassword ? 'text' : "password"} 
+                                className="input focus:outline-none focus:ring-2 focus:ring-pink-100  bg-gray-100 border-none mt-2" placeholder="🔐 Re-Type Password" required />
+                                 <button onClick={() => setShowPassword(!showPassword)} className='cursor-pointer absolute right-8 bottom-3'>
+                                    {
+                                        showPassword ?
+                                            <FaRegEye size={18} /> :
+                                            <RiEyeCloseFill size={18} />
+                                    }
+                                </button>
+                          </div>
 
                             <div>
                                 <div>
                                     <fieldset className="fieldset bg-base-100 border-base-300  w-64 py-4">
-                                       
+
                                         <label className="label">
-                                            <input 
-                                            name='checkBox'
-                                            type="checkbox"  className="checkbox text-2xl" />
-                                           Accept Terms and Conditions
+                                            <input
+                                                name='checkBox'
+                                                type="checkbox" className="checkbox text-2xl" />
+                                            Accept Terms and Conditions
                                         </label>
                                     </fieldset>
                                 </div>
-                                
+
                                 <Link>
                                     <p className="link link-hover">Forgot password?</p>
                                 </Link>

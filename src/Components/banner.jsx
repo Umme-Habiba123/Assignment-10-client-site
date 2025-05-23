@@ -40,7 +40,7 @@ const Banner = () => {
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-yellow-100 px-4">
         <h1 className="text-4xl md:text-6xl font-bold drop-shadow-md">{title}</h1>
         <p className="mt-4 text-lg md:text-2xl drop-shadow-md">{subtitle}</p>
-        <button className="mt-6 bg-yellow-300 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition">
+        <button className="mt-6 bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-black  transition">
           Explore Now
         </button>
       </div>

@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "icon": "💻",
+    "category": "Web Development",
+    "desc": "Frontend, Backend, Full Stack Projects"
+  },
+  {
+    "id": 2,
+    "icon": "📱",
+    "category": "Mobile App Development",
+    "desc": "iOS, Android, Cross-platform Apps"
+  },
+  {
+    "id": 3,
+    "icon": "📊",
+    "category": "Data & Analytics",
+    "desc": "Data Analysis, Visualization, Dashboards"
+  },
+  {
+    "id": 4,
+    "icon": "🛒",
+    "category": "E-commerce",
+    "desc": "Shopify, WooCommerce, Payment Integration"
+  },
+  {
+    "id": 5,
+    "icon": "🎨",
+    "category": "UI/UX Design",
+    "desc": "Figma, Adobe XD, App & Web Design"
+  },
+  {
+    "id": 6,
+    "icon": "📝",
+    "category": "Content Writing",
+    "desc": "Blogs, Articles, Technical Writing"
+  },
+  {
+    "id": 7,
+    "icon": "🔒",
+    "category": "Cybersecurity",
+    "desc": "Security Audits, Pen Testing, Risk Analysis"
+  },
+  {
+    "id": 8,
+    "icon": "⚙️",
+    "category": "DevOps",
+    "desc": "CI/CD, Docker, Kubernetes, Monitoring"
+  },
+  {
+    "id": 9,
+    "icon": "📢",
+    "category": "Digital Marketing",
+    "desc": "SEO, Social Media, Google Ads"
+  }
+]

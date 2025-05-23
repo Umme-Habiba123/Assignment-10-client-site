@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 
 const AddTasks = () => {
 
-            const [selected, setSelected] = useState('Select Category');
+    const [selected, setSelected] = useState('Select Category');
 
     const { user } = use(AuthContext)
 
@@ -94,8 +94,8 @@ const AddTasks = () => {
                             name="category"
                             onChange={(e) => setSelected(e.target.value)}
                             className={`p-3 fieldset rounded-lg border ${selected === 'Select Category'
-                                    ? ' text-gray-500 border-gray-300 border'
-                                    : ' text-black border-teal-500 border-2 focus:outline-none'
+                                ? ' text-gray-500 border-gray-300 border'
+                                : ' text-black border-teal-500 border-2 focus:outline-none'
                                 }`}
                             // className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-teal-500 text-gray-500"
                             required>
@@ -118,15 +118,15 @@ const AddTasks = () => {
                         <label className="label">Deadline</label>
                         <input
                             name="deadline "
-                             onChange={(e) => setSelected(e.target.value)}
+                            onChange={(e) => setSelected(e.target.value)}
                             className={`p-3 fieldset rounded-lg border ${selected === 'Select Category'
-                                    ? ' text-gray-500 border-gray-300 border'
-                                    : ' text-black border-teal-500 border-2 focus:outline-none'
+                                ? ' text-gray-500 border-gray-300 border'
+                                : ' text-black border-teal-500 border-2 focus:outline-none'
                                 }`}
                             type="date"
-                            // className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                            // placeholder="dd/mm/yyyy" 
-                            />
+                        // className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                        // placeholder="dd/mm/yyyy" 
+                        />
                     </fieldset>
 
                     {/* budget-- */}
@@ -154,7 +154,7 @@ const AddTasks = () => {
                             placeholder="Write clearly what needs to be done..."
                             required
                         ></textarea>
-      
+
                     </fieldset>
 
 

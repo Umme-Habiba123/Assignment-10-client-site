@@ -19,6 +19,7 @@ import AuthProvider from './Provider/AuthProvider.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
 import TaskDetails from './Components/TaskDetails.jsx';
 import UpdateTasks from './Components/UpdateTasks.jsx';
+import FeatureTask from './Components/FeatureTask.jsx';
 
 // import ForgotPass from './Components/ForgotPass.jsx';
 
@@ -68,7 +69,8 @@ const router = createBrowserRouter([
         element:<PrivateRoute><UpdateTasks></UpdateTasks></PrivateRoute>
       },
       {
-
+        path:'/featureTask',
+        Component: FeatureTask
       }
     ]
   },

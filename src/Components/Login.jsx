@@ -81,6 +81,7 @@ const Login = () => {
     const handleGoogleLogIn = () => {
         googleLogIn().then(result => {
             console.log(result.user)
+           navigate(location?.state || '/')
 
         }).catch(error => {
             console.log(error)
@@ -107,13 +108,13 @@ const Login = () => {
                             <input
 
                                 name='email'
-                                type="email" className="input" placeholder="📧 Email" required />
+                                type="email" className="input focus:outline-none focus:ring-2 focus:ring-pink-100 border-none bg-gray-100" placeholder="📧 Email" required />
                             {/* password */}
                             <div className='relative'>
                                 <label className="label">Password</label>
                                 <input
                                     name='password'
-                                    type={showPassword ? 'text' : "password"} className="input" placeholder="🔐 Password" required />
+                                    type={showPassword ? 'text' : "password"} className="input focus:outline-none focus:ring-2 focus:ring-pink-100 bg-gray-100 border-none" placeholder="🔐 Password" required />
                                 <button onClick={() => setShowPassword(!showPassword)} className='cursor-pointer absolute right-8 bottom-3'>
                                     {
                                         showPassword ?
