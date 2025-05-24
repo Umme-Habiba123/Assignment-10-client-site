@@ -4,10 +4,9 @@ import Banner from './banner';
 import CityJobs from './CityJobs';
 import FeatureTask from './FeatureTask';
 import AboutMe from './AboutMe';
-import CountUp from './CountUp';
 import CountUpp from './CountUp';
-import ThemeControler from './ThemeControler';
 import MyLottie from './MyLottie';
+import TypeWritter from './TypeWritter';
 
 
 const Home = () => {
@@ -20,6 +19,10 @@ const Home = () => {
           <CountUpp></CountUpp>
           <AboutMe></AboutMe>
           <MyLottie></MyLottie>
+          <TypeWritter></TypeWritter>
+        
+          
+       
 
             
         </div>
