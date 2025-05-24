@@ -7,7 +7,7 @@ const BrouseTasks = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/tasks')
+        fetch('https://freelance-marketplace-server-one.vercel.app/tasks')
             .then(res => res.json())
             .then(data => setTasks(data))
             .catch(err => console.error('Error fetching tasks:', err));

@@ -13,9 +13,23 @@ const TaskDetails = () => {
     const [task, setTask] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+    const [countBid, setBidCount] = useState(0)
+
+    const handleBid = () => {
+        setBidCount(prev => prev + 1)
+
+        fetch(`https://freelance-marketplace-server-one.vercel.app/tasks/bid/${id}`,{
+            method : 'PATCH'
+        })
+        .then(res=>res.json())
+        .then(data=>{
+           setBidCount(data.bid || 0)
+           setLoading(false)
+        })
+    }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/tasks/${id}`)
+        fetch(`https://freelance-marketplace-server-one.vercel.app/tasks/${id}`)
             .then((res) => {
                 if (!res.ok) {
                     throw new Error("Task not found");
@@ -47,11 +61,21 @@ const TaskDetails = () => {
     return (
 
         <div className="max-w-4xl  mx-auto p-6 bg-white shadow-lg rounded-lg mt-30 dancing-script-font">
+
+            <h1 className="text-center text-red-700 text-2xl  font-bold">
+
+                Your Bid for {countBid}{countBid === 1 ? ' Opportunity' : ' Opportunities'}
+            </h1>
+
+
+
             {/* button----- */}
+
             <button onClick={() => navigate(-1)} className="text-2xl tagesschrift-regular mb-15 bg-cyan-500 text-white hover:bg-white hover:text-black border-cyan-500 p-5 btn"><FaArrowLeftLong /> Go Back</button>
             <h2 className="text-3xl font-bold mb-4 tagesschrift-regular">
                 {task.title}
             </h2>
+
             <p className=""><strong>Category : </strong> {task.category}</p>
             <p className=""><strong>Budget : </strong> <span className="text-teal-700 font-bold">${task.budget}</span></p>
             <p><strong>Deadline : </strong><span className="tagesschrift-regular">
@@ -64,6 +88,8 @@ const TaskDetails = () => {
                 <p className=""><strong>Email : </strong> <span className="text-green-700">
                     {task.email}</span></p>
             </div>
+
+            <button onClick={handleBid} className="btn mt-10 px-9 text-lg bg-cyan-500 text-white rounded-sm hover:">BID</button>
 
 
         </div>

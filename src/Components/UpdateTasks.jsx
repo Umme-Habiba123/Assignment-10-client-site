@@ -21,7 +21,7 @@ const UpdateTasks = () => {
             return
         }
 
-        fetch(`http://localhost:5000/tasks/${_id}`, {
+        fetch(`https://freelance-marketplace-server-one.vercel.app/tasks/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -166,7 +166,7 @@ const UpdateTasks = () => {
                                 required
                             ></textarea>
 
-                            <input type="hidden" name="_id" defaultValue={_id} />
+                            {/* <input type="hidden" name="_id" defaultValue={_id} /> */}
 
 
                         </fieldset>

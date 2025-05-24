@@ -19,7 +19,7 @@ const AddTasks = () => {
         const newTask = Object.fromEntries(formData.entries())
         console.log(newTask)
 
-        fetch('http://localhost:5000/tasks', {
+        fetch('https://freelance-marketplace-server-one.vercel.app/tasks', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

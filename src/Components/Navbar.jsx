@@ -4,6 +4,7 @@ import { SiFreelancermap } from "react-icons/si";
 import userPhoto from '../assets/user.png'
 import { AuthContext } from '../Provider/AuthContext';
 import { NavLink } from 'react-router';
+import ThemeControler from './ThemeControler';
 
 const Navbar = () => {
 
@@ -41,7 +42,7 @@ const Navbar = () => {
     </>
     return (
         <div>
-            <div className="navbar   tagesschrift-regular w-11/12 mx-auto shadow-sm py-5">
+            <div className="navbar  tagesschrift-regular w-11/12 mx-auto shadow-sm py-5 sticky top-0 z-50  ">
                 <div className="navbar-start">
 
                     <div className="dropdown">
@@ -88,7 +89,7 @@ const Navbar = () => {
                     {
                         user ?
                             <>
-                                <span>
+                                <span className='text-xs lg:text-sm'>
                                     {user.email}
                                 </span>
 
@@ -107,7 +108,11 @@ const Navbar = () => {
                         <p className="btn text-xs md:text-xl lg:text-sm   bg-pink-200 border border-pink-200  hover:bg-white">SIGN UP</p>
                     </Link>
                 </div>
+                    <div className='ml-5'>
+                         <ThemeControler></ThemeControler>
+                    </div>
             </div>
+       
         </div>
     );
 };

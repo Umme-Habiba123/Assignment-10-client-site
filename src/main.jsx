@@ -1,8 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-
-
 import {
   createBrowserRouter,
   RouterProvider,
@@ -20,6 +18,8 @@ import PrivateRoute from './Routes/PrivateRoute.jsx';
 import TaskDetails from './Components/TaskDetails.jsx';
 import UpdateTasks from './Components/UpdateTasks.jsx';
 import FeatureTask from './Components/FeatureTask.jsx';
+import MyDetails from './Components/MyDetails.jsx';
+import Services from './Components/Services.jsx';
 
 // import ForgotPass from './Components/ForgotPass.jsx';
 
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
       },
       {
         path:'brouseTasks',
-        loader: ()=>fetch('http://localhost:5000/tasks'),
+        loader: ()=>fetch('https://freelance-marketplace-server-one.vercel.app/tasks'),
         element:<PrivateRoute><BrouseTasks></BrouseTasks></PrivateRoute>
       },
       {
@@ -60,17 +60,25 @@ const router = createBrowserRouter([
       // },
       {
         path:'taskDetails/:id',
-        loader:({params})=>fetch(`http://localhost:5000/tasks/${params._id}`),
+        loader:({params})=>fetch(`https://freelance-marketplace-server-one.vercel.app/tasks/${params.id}`),
         Component:TaskDetails
       },
       {
         path:'/updateTask/:id',
-        loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
+        loader: ({ params }) => fetch(`https://freelance-marketplace-server-one.vercel.app/tasks/${params.id}`),
         element:<PrivateRoute><UpdateTasks></UpdateTasks></PrivateRoute>
       },
       {
         path:'/featureTask',
         Component: FeatureTask
+      },
+      {
+        path:'/myDetails',
+        Component: MyDetails
+      },
+      {
+        path:'/services',
+        Component: Services
       }
     ]
   },

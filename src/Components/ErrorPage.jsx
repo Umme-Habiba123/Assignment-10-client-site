@@ -1,11 +1,11 @@
 
-import { Link, useLocation, useNavigate } from 'react-router';
+import { Link,  useNavigate } from 'react-router';
 import Navbar from './Navbar';
 import { FaArrowLeftLong } from "react-icons/fa6";
 
 const ErrorPage = () => {
     const navigate=useNavigate()
-    const location=useLocation()
+    // const location=useLocation()
 
     return (
         <div className=' '>
