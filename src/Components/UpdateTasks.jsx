@@ -14,8 +14,6 @@ const UpdateTasks = () => {
         const formData = new FormData(form)
         const updatedTask = Object.fromEntries(formData.entries())
 
-
-        // const taskId=_id
         if (!_id) {
             console.log('Task Id missing')
             return

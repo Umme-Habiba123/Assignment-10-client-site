@@ -67,8 +67,6 @@ const TaskDetails = () => {
                 Your Bid for {countBid}{countBid === 1 ? ' Opportunity' : ' Opportunities'}
             </h1>
 
-
-
             {/* button----- */}
 
             <button onClick={() => navigate(-1)} className="text-2xl tagesschrift-regular mb-15 bg-cyan-500 text-white hover:bg-white hover:text-black border-cyan-500 p-5 btn"><FaArrowLeftLong /> Go Back</button>
@@ -89,7 +87,8 @@ const TaskDetails = () => {
                     {task.email}</span></p>
             </div>
 
-            <button onClick={handleBid} className="btn mt-10 px-9 text-lg bg-cyan-500 text-white rounded-sm hover:">BID</button>
+            <button onClick={handleBid} className="btn mt-10 px-9 text-lg bg-cyan-500 text-white rounded-sm hover:bg-white hover:text-black hover:text-semibold
+            tagesschrift-regular">BID</button>
 
 
         </div>
