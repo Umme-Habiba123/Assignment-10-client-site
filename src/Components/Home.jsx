@@ -10,23 +10,23 @@ import TypeWritter from './TypeWritter';
 
 
 const Home = () => {
-    return (
-        <div >
-        
-          <Banner></Banner>
-          <CityJobs></CityJobs>
-          <FeatureTask></FeatureTask>
-          <CountUpp></CountUpp>
-          <AboutMe></AboutMe>
-          <MyLottie></MyLottie>
-          <TypeWritter></TypeWritter>
-        
-          
-       
+  return (
+    <div >
 
-            
-        </div>
-    );
+      <Banner></Banner>
+      <CityJobs></CityJobs>
+      <FeatureTask></FeatureTask>
+      <CountUpp></CountUpp>
+      <AboutMe></AboutMe>
+      <MyLottie></MyLottie>
+      <TypeWritter></TypeWritter>
+
+
+
+
+
+    </div>
+  );
 };
 
 export default Home;
