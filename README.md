@@ -34,7 +34,7 @@ Flexora is a lightweight freelance task marketplace that connects clients and fr
 ---
 
 ## 🖼 Screenshot
-![Flexora Screenshot](https://i.ibb.co.com/n8PS6FTw/f-2.webp)
+![Flexora Screenshot](https://i.ibb.co.com/d0tHtfjL/Screenshot-2025-10-17-140707.png)
 > Replace with `./screenshot.png` for a local screenshot file.
 
 ---
