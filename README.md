@@ -1,138 +1,66 @@
-# React + Vite
+# 💼 Flexora – Freelance Task Showcase Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Flexora
-
-**Live Demo:** https://inspiring-piroshki-a70fe3.netlify.app/  
-**Repository (Client):** https://github.com/Umme-Habiba123/Assignment-10-client-site
+Flexora is a **modern freelance showcase platform** where users can **add their completed tasks or projects** and display them as a professional **portfolio**.  
+It allows freelancers to show their work publicly while maintaining a clean and responsive user interface.
 
 ---
 
-## 🔍 Project Overview
-Flexora is a lightweight freelance task marketplace that connects clients and freelancers. Clients can post tasks, freelancers can browse and apply, and payments are managed securely. The UI is responsive and built with modern frontend tooling.
+## 🚀 Live Demo  
+🔗 Visit Flexora Live - [https://inspiring-piroshki-a70fe3.netlify.app/]
+
 
 ---
 
-## 🧰 Technologies
-- React
-- Tailwind CSS
-- Firebase (Auth / Firestore)
-- Node.js (server - optional)
-- MongoDB (server - optional)
-- Stripe (payments)
-- React Router
+## 🖼️ Screenshots
+
+### 🏠 Home Page  
+![Home Page](https://i.ibb.co.com/1GY2PtV2/Screenshot-2025-10-17-140707.png)
+
+### 🧾 Add Task Page  
+![Add Task Page](https://i.ibb.co.com/PvzbktHQ/Screenshot-2025-10-26-091106.png)
+
 
 ---
 
-## 🖼 Screenshot
-![Flexora Screenshot](https://i.ibb.co.com/d0tHtfjL/Screenshot-2025-10-17-140707.png)
-> Replace with `./screenshot.png` for a local screenshot file.
+## ✨ Features
+
+- 👩‍💻 Users can **sign up and log in**
+- 🧾 **Add, edit, and delete tasks/projects**
+- 🖼️ Each task includes **title, description, and images**
+- 🌍 **Public showcase** for all users to explore others’ work
+- 🧭 Simple **dashboard** with an easy interface
+- 📱 **Fully responsive** using Tailwind CSS
+- 🗄️ **MERN Stack** (MongoDB, Express.js, React.js, Node.js)
+- ☁️ **Deployed on Netlify (Frontend)** and **Render (Backend)**
 
 ---
 
-## ✨ Core Features
-- User authentication (Firebase)
-- Task posting and management (client)
-- Proposal / bidding flow (freelancer)
-- Live task updates (Firestore realtime features)
-- Secure payment integration (Stripe)
-- Responsive design for mobile & desktop
+## 🛠️ Tech Stack
+
+**Frontend:** React.js, Tailwind CSS  
+**Backend:** Node.js, Express.js  
+**Database:** MongoDB  
+**Deployment:** Netlify & Render  
 
 ---
 
-## ⚙️ Dependencies (client)
+## ⚙️ Installation & Setup
+
 ```bash
-react
-react-dom
-react-router-dom
-firebase
-axios
-tailwindcss
-classnames
+# Clone the repository
+git clone https://github.com/your-username/flexora.git
 
+# Navigate to the project
+cd flexora
 
-
-## 🚀 How to Run the Project Locally
-
-Follow these steps to set up and run this project on your local machine 👇
-
----
-
-### 🧩 1. Prerequisites
-Make sure the following tools are installed on your system:
-- **Node.js** (v16 or higher) → [Download here](https://nodejs.org/)
-- **npm** (comes with Node) or **yarn**
-- **Git** → [Download here](https://git-scm.com/)
-
-Check if everything is installed:
-```bash
-node -v
-npm -v
-git --version
-
-📥 2. Clone the Repository
-git clone https://github.com/Umme-Habiba123/REPO-NAME.git
-cd REPO-NAME
-
-⚙️ 3. Install Dependencies
+# Install dependencies for frontend and backend
+cd client
+npm install
+cd ../server
 npm install
 
-🔐 4. Setup Environment Variables
-Create a file named .env.local in the root folder and add your environment variables.
-
-🧠 5. Start the Development Server
+# Run backend
 npm start
 
-🖥️ 6. (Optional) Run the Backend Server
-cd server
-npm install
+# Run frontend (in another terminal)
 npm run dev
-
-🏗️ 7. Build for Production
-npm run build
-
-🧹 8. Troubleshooting
-
-Port already in use:
-Change the port or stop the running process:
-
-npx kill-port 3000
-
-
-Environment variables not loading:
-Check .env.local name and restart the dev server.
-
-CORS error:
-Make sure your backend allows requests from your frontend URL.
-
-Dependencies not found:
-Run npm install again.
-
-🌍 9. Deployment Tips
-
-You can deploy your project easily to:
-
-Netlify → for frontend hosting
-
-Vercel → for full-stack projects
-
-Render / Railway → for backend server
-
-Build command:
-
-npm run build
-
-
-Publish directory:
-
-build 🎉🎉🎉
-
