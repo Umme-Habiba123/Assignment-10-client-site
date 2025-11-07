@@ -1,4 +1,4 @@
-# 💼 Flexora – Freelance Task Showcase Platform
+<img width="1903" height="914" alt="image" src="https://github.com/user-attachments/assets/ed0f296e-a65d-4d69-8f5e-0052cdb228a1" /># 💼 Flexora – Freelance Task Showcase Platform
 
 Flexora is a **modern freelance showcase platform** where users can **add their completed tasks or projects** and display them as a professional **portfolio**.  
 It allows freelancers to show their work publicly while maintaining a clean and responsive user interface.
@@ -6,7 +6,7 @@ It allows freelancers to show their work publicly while maintaining a clean and 
 ---
 
 ## 🚀 Live Demo  
-🔗 Visit Flexora Live - [https://inspiring-piroshki-a70fe3.netlify.app/]
+🔗 Visit Flexora Live - [https://rainbow-pastelito-98a319.netlify.app/]
 
 
 ---
@@ -14,7 +14,7 @@ It allows freelancers to show their work publicly while maintaining a clean and 
 ## 🖼️ Screenshots
 
 ### 🏠 Home Page  
-![Home Page](https://i.ibb.co.com/1GY2PtV2/Screenshot-2025-10-17-140707.png)
+![Home Page] [https://i.ibb.co.com/VYvgTdJW/Screenshot-2025-11-08-013359.png]
 
 ### 🧾 Add Task Page  
 ![Add Task Page](https://i.ibb.co.com/PvzbktHQ/Screenshot-2025-10-26-091106.png)
