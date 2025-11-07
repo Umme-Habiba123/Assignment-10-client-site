@@ -7,7 +7,7 @@ const BrouseTasks = () => {
 
     useEffect(() => {
 
-        fetch('https://freelance-marketplace-server-one.vercel.app/tasks')
+        fetch('http://localhost:5000/tasks')
             .then(res => res.json())
             .then(data => setTasks(data))
             .catch(err => console.error('Error fetching tasks:', err));
@@ -34,7 +34,7 @@ const BrouseTasks = () => {
                         <div className=''>
                             <Link
                                 to={`/taskDetails/${task._id}`}
-                                className="inline-block  bg-teal-600 text-white px-4 py-2 rounded hover:bg-white border border-cyan-500 hover:text-black transition "
+                                className="inline-block  bg-green-600 text-white px-4 py-2 rounded hover:bg-white border border-cyan-500 hover:text-black transition "
                             >
                                <li className='flex gap-1 text-lg tagesschrift-regular'> See Details <span className=' '>
                                 <HiArrowLongRight size={30}/> 

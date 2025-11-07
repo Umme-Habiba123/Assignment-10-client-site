@@ -19,7 +19,7 @@ const UpdateTasks = () => {
             return
         }
 
-        fetch(`https://freelance-marketplace-server-one.vercel.app/tasks/${_id}`, {
+        fetch(`http://localhost:5000/tasks/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

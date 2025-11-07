@@ -20,6 +20,12 @@ import UpdateTasks from './Components/UpdateTasks.jsx';
 import FeatureTask from './Components/FeatureTask.jsx';
 import MyDetails from './Components/MyDetails.jsx';
 import Services from './Components/Services.jsx';
+import JobSearch from './Components/JobSearch/JobSearch.jsx';
+import BlogSection from './Components/BlogSection.jsx';
+import ContactUs from './Components/ContactUs.jsx';
+import DigitalMarketing from './Components/DigitalMarketing.jsx';
+import ContentWriting from './Components/ContentWriting.jsx';
+import WebDevelopment from './Components/WebDevelopment.jsx';
 
 // import ForgotPass from './Components/ForgotPass.jsx';
 
@@ -39,7 +45,7 @@ const router = createBrowserRouter([
       },
       {
         path:'brouseTasks',
-        loader: ()=>fetch('https://freelance-marketplace-server-one.vercel.app/tasks'),
+        loader: ()=>fetch('http://localhost:5000/tasks'),
         element:<PrivateRoute><BrouseTasks></BrouseTasks></PrivateRoute>
       },
       {
@@ -60,12 +66,12 @@ const router = createBrowserRouter([
       // },
       {
         path:'taskDetails/:id',
-        loader:({params})=>fetch(`https://freelance-marketplace-server-one.vercel.app/tasks/${params.id}`),
+        loader:({params})=>fetch(`http://localhost:5000/tasks/${params.id}`),
         Component:TaskDetails
       },
       {
         path:'/updateTask/:id',
-        loader: ({ params }) => fetch(`https://freelance-marketplace-server-one.vercel.app/tasks/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/tasks/${params.id}`),
         element:<PrivateRoute><UpdateTasks></UpdateTasks></PrivateRoute>
       },
       {
@@ -77,9 +83,33 @@ const router = createBrowserRouter([
         Component: MyDetails
       },
       {
+        path:'/jobs',
+        Component: JobSearch
+      },
+      {
+        path:'/blogs',
+        Component: BlogSection
+      },
+      {
+        path:'/contact',
+        Component: ContactUs
+      },
+      {
         path:'/services',
         Component: Services
-      }
+      },
+      {
+        path:'/services/marketing',
+        Component: DigitalMarketing
+      },
+      {
+        path:'/services/design',
+        Component: ContentWriting
+      },
+      {
+        path:'/services/web-development',
+        Component: WebDevelopment
+      },
     ]
   },
 ]);

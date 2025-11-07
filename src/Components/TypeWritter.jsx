@@ -13,7 +13,7 @@ const TypeWritter = () => {
 
             <div className='w-10/12 mx-auto'>
 
-                <p className='text-teal-800 satisfy-regular text-2xl text-center '>
+                <p className='text-gray-600 satisfy-regular text-2xl text-center '>
                     <span style={{ fontWeight: 'bold' }}>
 
                         <Typewriter

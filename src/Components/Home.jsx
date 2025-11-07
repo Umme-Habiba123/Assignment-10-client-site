@@ -7,6 +7,8 @@ import AboutMe from './AboutMe';
 import CountUpp from './CountUp';
 import MyLottie from './MyLottie';
 import TypeWritter from './TypeWritter';
+import FAQ from './FAQ';
+import BrowseTalent from './BrowseTalent';
 
 
 const Home = () => {
@@ -17,7 +19,10 @@ const Home = () => {
       <CityJobs></CityJobs>
       <FeatureTask></FeatureTask>
       <CountUpp></CountUpp>
+      <FAQ></FAQ>
+      <BrowseTalent></BrowseTalent>
       <AboutMe></AboutMe>
+
       <MyLottie></MyLottie>
       <TypeWritter></TypeWritter>
 

@@ -18,7 +18,7 @@ const TaskDetails = () => {
     const handleBid = () => {
         setBidCount(prev => prev + 1)
 
-        fetch(`https://freelance-marketplace-server-one.vercel.app/tasks/bid/${id}`,{
+        fetch(`http://localhost:5000/tasks/bid/${id}`,{
             method : 'PATCH'
         })
         .then(res=>res.json())
@@ -29,7 +29,7 @@ const TaskDetails = () => {
     }
 
     useEffect(() => {
-        fetch(`https://freelance-marketplace-server-one.vercel.app/tasks/${id}`)
+        fetch(`http://localhost:5000/tasks/${id}`)
             .then((res) => {
                 if (!res.ok) {
                     throw new Error("Task not found");

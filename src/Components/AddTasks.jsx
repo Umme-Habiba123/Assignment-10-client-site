@@ -19,7 +19,7 @@ const AddTasks = () => {
         const newTask = Object.fromEntries(formData.entries())
         console.log(newTask)
 
-        fetch('https://freelance-marketplace-server-one.vercel.app/tasks', {
+        fetch('http://localhost:5000/tasks', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -158,7 +158,7 @@ const AddTasks = () => {
                     </fieldset>
 
 
-                    <input type="submit" className="btn bg-pink-200 border border-pink-200 hover:bg-white hover:text-teal-800  mt-3 w-full text-xl dancing-script-font mb-50" value='Add Task' />
+                    <input type="submit" className="btn bg-green-500 font-bold border border-green-500 hover:bg-white hover:text-teal-800  mt-3 w-full text-xl dancing-script-font mb-50" value='Add Task' />
                 </div>
 
             </form>
